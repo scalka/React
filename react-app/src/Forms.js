@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 class Forms extends React.Component {
   constructor(props) {
     super(props);
+    //the name of input must match state elemetns
     this.state = {
-      checked: false,
-      insurance: 'without',
+      insurance: false,
       name: '',
       email: '',
       number: 0,
@@ -22,34 +22,24 @@ class Forms extends React.Component {
 
 		console.log(`Input name ${name}. Input value ${value}.`);
 
-    if(value){
-      this.setState({
-        [name]: value,
-        insurance: 'with',
-        checked: value
-      });
-    } else {
-      this.setState({
-        [name]: value,
-        insurance: 'without',
-        checked: value
-      });
-    }
+    /*
+    str = 'module'
+    user2 = {name: 'Jim', str: 'AJS'}
+    user2 = {name: 'Jim', [str]: 'AJS'}
+     */
+
+
+    this.setState({
+      // if no square brackets around name - the value is hardcoded
+      // [name] => ][event.targer.name]  accesses object property name programatically
+      [name]: value
+    });
   }
 
   render() {
     return (
       <div>
       <form>
-        <label>
-          Insurance:
-          <input
-            name="insurance"
-            type="checkbox"
-            checked={this.state.checked}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
         <label>
           Name:
           <input
@@ -76,9 +66,18 @@ class Forms extends React.Component {
             value={this.state.number}
             onChange={this.handleInputChange} />
         </label>
-
+        <br />
+        <label>
+          Insurance:
+          <input
+            name="insurance"
+            type="checkbox"
+            checked={this.state.checked}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
       </form>
-      <h1>Hi, {this.state.name}! You have selected a {this.state.number} month contract {this.state.insurance} insurance.</h1>
+      <h1>Hi, {this.state.name}! You have selected a {this.state.number} month contract {this.state.insurance ? 'with' : 'without'} insurance.</h1>
       </div>
     );
   }
