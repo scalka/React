@@ -43,12 +43,5 @@ class CountDown extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <div>
-    <CountDown startValue={10}/>
-    <CountDown startValue={20}/>
-  </div>,
-  document.getElementById('root')
-);
 
 export default CountDown;

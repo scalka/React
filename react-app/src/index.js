@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Clicky from './Clicky'
 import CountDown from './CountDown'
 import Forms from './Forms'
+import Listy from './Listy'
 
 //in react you mix html and js together
 //const x = 10
@@ -16,4 +17,6 @@ import Forms from './Forms'
 
 //ReactDOM.render(<CountDown />, document.getElementById('other'));
 
-ReactDOM.render(<Forms />, document.getElementById('other'));
+//ReactDOM.render(<Forms />, document.getElementById('other'));
+
+ReactDOM.render(<Listy />, document.getElementById('other'));
