@@ -15,9 +15,9 @@ class Listy extends React.Component {
     //   list.push(<li key={i}>{users[i]}</li>);
     // }
 
-    const list = listlong.map( (u,i) => {
-      return <li key={i}>
-              {u.first_name} {u.last_name} <br /> {u.email}
+    const list = listlong.map( (u) => {
+      return <li key={u.id}>
+              <h2>{u.first_name} {u.last_name}</h2> <h3>{u.email}</h3>
             </li>;
     });
 
