@@ -5,7 +5,8 @@ class Forms extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      insurance: true,
+      checked: false,
+      insurance: 'without',
       name: '',
       email: '',
       number: 0,
@@ -21,9 +22,19 @@ class Forms extends React.Component {
 
 		console.log(`Input name ${name}. Input value ${value}.`);
 
-    this.setState({
-      [name]: value
-    });
+    if(value){
+      this.setState({
+        [name]: value,
+        insurance: 'with',
+        checked: value
+      });
+    } else {
+      this.setState({
+        [name]: value,
+        insurance: 'without',
+        checked: value
+      });
+    }
   }
 
   render() {
@@ -31,11 +42,11 @@ class Forms extends React.Component {
       <div>
       <form>
         <label>
-          I wish to receive your email newsletter.
+          Insurance:
           <input
             name="insurance"
             type="checkbox"
-            checked={this.state.insurance}
+            checked={this.state.checked}
             onChange={this.handleInputChange} />
         </label>
         <br />
@@ -67,7 +78,7 @@ class Forms extends React.Component {
         </label>
 
       </form>
-      <h1>Hi, {this.state.name}! You have selected a {this.state.number} month contract .</h1>
+      <h1>Hi, {this.state.name}! You have selected a {this.state.number} month contract {this.state.insurance} insurance.</h1>
       </div>
     );
   }
