@@ -5,6 +5,7 @@ import Clicky from './Clicky'
 import CountDown from './CountDown'
 import Forms from './Forms'
 import Listy from './Listy'
+import FetchUsers from './FetchUsers'
 
 //in react you mix html and js together
 //const x = 10
@@ -19,4 +20,5 @@ import Listy from './Listy'
 
 //ReactDOM.render(<Forms />, document.getElementById('other'));
 
-ReactDOM.render(<Listy />, document.getElementById('other'));
+//ReactDOM.render(<Listy />, document.getElementById('other'));
+ReactDOM.render(<FetchUsers />, document.getElementById('other'));
